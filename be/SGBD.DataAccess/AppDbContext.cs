@@ -100,15 +100,15 @@ namespace SGBD.DataAccess
                     .HasColumnType("NUMBER")
                     .HasColumnName("TOTAL_PRICE");
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.Items)
+                /*entity.HasOne(d => d.Order)
+                    .WithOne(p => p.Items)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("SYS_C007734");
+                    .HasConstraintName("SYS_C007734");*/
 
-                entity.HasOne(d => d.StorageLocation)
+                /*entity.HasOne(d => d.StorageLocation)
                     .WithMany(p => p.Items)
                     .HasForeignKey(d => d.StorageLocationId)
-                    .HasConstraintName("SYS_C007735");
+                    .HasConstraintName("SYS_C007735");*/
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -136,10 +136,10 @@ namespace SGBD.DataAccess
                     .HasColumnType("DATE")
                     .HasColumnName("PAY_DATE");
 
-                entity.HasOne(d => d.Client)
+                /*entity.HasOne(d => d.Client)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.ClientId)
-                    .HasConstraintName("SYS_C007726");
+                    .HasConstraintName("SYS_C007726");*/
             });
 
             modelBuilder.Entity<Provider>(entity =>
@@ -188,10 +188,10 @@ namespace SGBD.DataAccess
                     .HasColumnType("NUMBER")
                     .HasColumnName("UNIT_PRICE");
 
-                entity.HasOne(d => d.Provider)
+                /*entity.HasOne(d => d.Provider)
                     .WithMany(p => p.StorageLocations)
                     .HasForeignKey(d => d.ProviderId)
-                    .HasConstraintName("SYS_C007732");
+                    .HasConstraintName("SYS_C007732");*/
             });
 
             modelBuilder.HasSequence("SEQ_PK_CLIENTS");

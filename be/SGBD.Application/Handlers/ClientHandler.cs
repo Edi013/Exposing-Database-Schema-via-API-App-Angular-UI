@@ -47,7 +47,7 @@ namespace SGBD.Application.Handlers
 
             var newClient = new Client
             {
-                Id = 0,
+                Id = request.Id,
                 LastName = request.LastName,
                 FirstName = request.FirstName,
                 City = request.City,

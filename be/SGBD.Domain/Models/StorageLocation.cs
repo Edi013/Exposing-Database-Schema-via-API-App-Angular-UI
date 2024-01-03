@@ -4,7 +4,6 @@
     {
         public StorageLocation()
         {
-            Items = new HashSet<Item>();
         }
 
         public decimal? ProviderId { get; set; }
@@ -13,6 +12,5 @@
         public string? LocationDescription { get; set; }
 
         public virtual Provider? Provider { get; set; }
-        public virtual ICollection<Item> Items { get; set; }
     }
 }

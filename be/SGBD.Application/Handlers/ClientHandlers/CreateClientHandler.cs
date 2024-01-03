@@ -19,13 +19,13 @@ namespace SGBD.Application.Handlers.ClientHandlers
             var newClient = new Client
             {
                 Id = 0,
-                Nume = request.Nume,
-                Prenume = request.Prenume,
-                Oras = request.Oras,
-                Telefon = request.Telefon,
-                Companie = request.Companie,
-                Cod = request.Cod,
-                Adresa = request.Adresa,
+                LastName = request.Nume,
+                FirstName = request.Prenume,
+                City = request.Oras,
+                PhoneNumber = request.Telefon,
+                Company = request.Companie,
+                PostalCode = request.Cod,
+                Adress = request.Adresa,
             };
     
             var result = await repository.Add(newClient);

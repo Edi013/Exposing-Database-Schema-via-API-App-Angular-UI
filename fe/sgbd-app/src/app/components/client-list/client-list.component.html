@@ -1,7 +1,7 @@
-<div *ngFor="let client of clients$ | async">
+<div *ngFor="let client of clients ">
     {{ client.firstName }} {{ client.lastName }}
     <button (click)="editClient(client)">Edit</button>
     <button (click)="deleteClient(client)">Delete</button>
-  </div>
-  <app-client-form [isEditMode]="isEditMode" [selectedClient]="selectedClient"></app-client-form>
+</div>
+<app-client-form [isEditMode]="isEditMode" [selectedClient]="selectedClient"></app-client-form>
   

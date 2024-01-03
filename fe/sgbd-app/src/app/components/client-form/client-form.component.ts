@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Client } from '../../models/client';
-import { ClientService } from '../../services/client.service.js';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-client-form',
   templateUrl: './client-form.component.html',
-  styleUrls: ['./client-form.component.css'],
+  styleUrls: ['./client-form.component.scss'],
 })
 export class ClientFormComponent implements OnInit {
   @Input() selectedClient: Client = { id: 0, firstName: '', lastName: ''};

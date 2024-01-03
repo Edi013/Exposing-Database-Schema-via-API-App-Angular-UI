@@ -1,4 +1,8 @@
 <form (submit)="submitForm()">
+    <label for="id">Id:</label>
+    <input [(ngModel)]="selectedClient.id" name="id" required>
+    <br>
+
     <label for="firstName">First Name:</label>
     <input [(ngModel)]="selectedClient.firstName" name="firstName" required>
     <br>
@@ -6,7 +10,23 @@
     <label for="lastName">Last Name:</label>
     <input [(ngModel)]="selectedClient.lastName" name="lastName" required>
     <br>
+
+    <label for="address">Address:</label>
+    <input [(ngModel)]="selectedClient.address" name="address" required>
+    <br>
+
+    <label for="city">City:</label>
+    <input [(ngModel)]="selectedClient.city" name="city" required>
+    <br>
+
+    <label for="postalCode">Postal Code:</label>
+    <input [(ngModel)]="selectedClient.postalCode" name="postalCode" required>
+    <br>
     
+    <label for="phoneNumber">Phone Number:</label>
+    <input [(ngModel)]="selectedClient.phoneNumber" name="phoneNumber" required>
+    <br>
+
     <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
   </form>
   

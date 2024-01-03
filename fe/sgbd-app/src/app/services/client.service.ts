@@ -20,16 +20,13 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getAllClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(`${this.apiUrl}/Client/GetAll`).pipe(
-      tap((clients) => {
-        this.clientsSubject.next(clients);
-      }),
-      catchError((error) => {
-        console.error('Error fetching clients', error);
-        return of([]);
-      })
+  async getAllClients(): Promise<void> {
+      const response = this.http.get<any>(
+      `${this.apiUrl}/Client/GetAll`, this.httpOptions
     );
+
+    var result = await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));
+    return result;
   }
 
   updateClient(client: Client): Observable<Client> {

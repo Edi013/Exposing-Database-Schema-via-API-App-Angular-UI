@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import {  } from '@angular/common';
 
 @Component({
@@ -11,16 +10,9 @@ import {  } from '@angular/common';
 export class HomePageComponent implements OnInit {
   userLoggedIn: boolean = false;
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.authService.isUserAuthenticatedSubject.subscribe((isLoggedIn: boolean) => {
-      this.userLoggedIn = isLoggedIn;
-    });
-  }
-
-  navigateToLogIn() {
-    this.router.navigate(['login']);
   }
 
   navigateToViewCars() {
@@ -34,11 +26,4 @@ export class HomePageComponent implements OnInit {
   navigateToHome(){
     this.router.navigate([""])
   }
-
-  logout(){
-    this.authService.logout();
-
-    this.navigateToHome()
-  }
-
 }

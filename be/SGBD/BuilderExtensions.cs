@@ -40,14 +40,15 @@ namespace SGBD
         
         private static void ConfigureCors(this WebApplicationBuilder builder)
         {
-            //var frontendAppUrl = builder.Configuration.GetSection("FrontendApp:Url");
+            var frontendAppUrl = builder.Configuration.GetSection("FrontendApp:Url");
 
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: "CorsPolicy",
                                           policy =>
                                           {
-                                              policy 
+                                              policy
+                                              //.SetIsOriginAllowed(origin => true) // allow any origin
                                               .AllowAnyOrigin()
                                               //.WithOrigins(frontendAppUrl.Value)
                                               .AllowAnyHeader()

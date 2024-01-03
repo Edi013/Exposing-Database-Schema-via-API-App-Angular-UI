@@ -8,15 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgModule } from '@angular/core';
 //import { HomePageComponent } from './components/home-page/home-page.component';
-import { ViewCarsComponent } from './components/view-cars/view-tables.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     //HomePageComponent,
-    ViewCarsComponent,
     ClientListComponent,
     ClientFormComponent,
   ],
@@ -26,6 +25,7 @@ import { ClientFormComponent } from './components/client-form/client-form.compon
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
+    RouterModule,
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

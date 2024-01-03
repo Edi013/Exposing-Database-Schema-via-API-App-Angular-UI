@@ -1,6 +1,4 @@
-﻿using SGBD.Domain.entities;
-
-namespace SGBD.Domain.Models
+﻿namespace SGBD.Domain.Models
 {
     public partial class Client : BaseEntity
     {

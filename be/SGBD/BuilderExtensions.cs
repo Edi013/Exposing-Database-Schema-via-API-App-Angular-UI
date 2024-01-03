@@ -24,6 +24,11 @@ namespace SGBD
             }));
 
             builder.Services.AddScoped<ClientHandler, ClientHandler>();
+            builder.Services.AddScoped<OrderHandler, OrderHandler>();
+            builder.Services.AddScoped<ItemHandler, ItemHandler>();
+            builder.Services.AddScoped<StorageLocationHandler, StorageLocationHandler>();
+            builder.Services.AddScoped<ProviderHandler, ProviderHandler>();
+
             builder.Services.AddScoped<IRepository<Client>, ClientRepository>();
             builder.Services.AddScoped<IRepository<Order>, OrderRepository>();
             builder.Services.AddScoped<IRepository<Item>, ItemRepository>();

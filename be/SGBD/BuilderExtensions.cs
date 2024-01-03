@@ -40,7 +40,7 @@ namespace SGBD
         
         private static void ConfigureCors(this WebApplicationBuilder builder)
         {
-            var frontendAppUrl = builder.Configuration.GetSection("FrontendApp:Url");
+            //var frontendAppUrl = builder.Configuration.GetSection("FrontendApp:Url");
 
             builder.Services.AddCors(options =>
             {

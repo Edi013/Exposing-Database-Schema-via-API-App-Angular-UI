@@ -1,0 +1,30 @@
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 60px auto;
+
+    .topbar{
+        grid-row: 1;
+    }
+
+    .content{
+        grid-row: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 70px auto;
+
+        .sidebar{
+            grid-column: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content-wrapper{
+            grid-column: 2;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

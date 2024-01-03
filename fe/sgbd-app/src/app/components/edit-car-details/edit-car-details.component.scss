@@ -1,0 +1,118 @@
+@import "/src/styles.scss";
+
+.edit-container {
+  font-size: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: $card-background-color;
+}
+.buttonColumn{
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 100%;
+}
+
+.centered-wrapper {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.edit-card-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2163b9;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+.form-field input {
+  font-size: 18px;
+  padding: 12px;
+}
+
+.form-field .error-message {
+  color: $color-ui-danger;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.spacer {
+  height: 8px;
+}
+
+.forgot-password-link {
+  text-align: left;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #1976d2;
+}
+
+.register-link {
+  font-size: 14px;
+}
+
+button[type="submit"] {
+  margin-top: 16px;
+  margin-right: 8px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.edit-button {
+  width: 70%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.button-align {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}

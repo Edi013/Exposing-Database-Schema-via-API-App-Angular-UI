@@ -1,0 +1,22 @@
+<div class="buttonRow">
+    <button mat-raised-button color="primary" (click)="getAllCars()">Refresh</button>
+    <button mat-raised-button color="primary" (click)="navigateToCreateCar()">Add Car</button>
+    <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+</div>
+
+<div class="background">
+    <div class="view-trips-container">  
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title class="view-trips-title-card">Cars</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="view-trips">
+                <div class="card-view-container">
+                    <div *ngFor="let car of cars">
+                        <car-card [car]="car" (onDelete)="onCardDelete($event)"></car-card>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

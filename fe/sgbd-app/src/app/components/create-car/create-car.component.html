@@ -1,0 +1,46 @@
+<div class="background">
+  <div class="buttonRow">
+    <button mat-raised-button color="primary" (click)="navigateToViewCars()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+  </div>
+  <div class="create-container">
+    <mat-card class="create-card">
+      <mat-card-title class="create-card-title">Add car</mat-card-title>
+  
+      <mat-card-content>
+        <form [formGroup]="createForm" (ngSubmit)="createCar()" class="create-form">
+          <mat-form-field class="form-field">
+            <mat-label>Enter new brand</mat-label>
+            <input matInput formControlName="brand" [(ngModel)]="car.brand" />
+            <mat-error *ngIf="createForm.controls['brand'].invalid">{{ getBrandErrorMessage() }}</mat-error>
+          </mat-form-field>
+  
+          <mat-form-field class="form-field">
+            <mat-label>Enter new model</mat-label>
+            <input matInput formControlName="model" [(ngModel)]="car.model" />
+            <mat-error *ngIf="createForm.controls['model'].invalid">{{ getModelErrorMessage() }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field">
+            <mat-label>Enter new type</mat-label>
+            <input matInput formControlName="type" [(ngModel)]="car.type" />
+            <mat-error *ngIf="createForm.controls['type'].invalid">{{ getTypeErrorMessage() }}</mat-error>
+          </mat-form-field>
+    
+          <mat-form-field class="form-field">
+            <mat-label>Enter new price</mat-label>
+            <input matInput formControlName="price" [(ngModel)]="car.price" />
+            <mat-error *ngIf="createForm.controls['price'].invalid">{{ getPriceErrorMessage() }}</mat-error>
+          </mat-form-field>
+  
+          <div class="spacer"></div>
+          <div class="button-align">
+            <button mat-raised-button class="create-button" color="primary" type="submit" [disabled]="createForm.invalid">
+              Create
+            </button>
+          </div>
+        </form>
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

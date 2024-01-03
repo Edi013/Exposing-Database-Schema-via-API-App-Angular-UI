@@ -8,7 +8,7 @@
     }
   },
   "projects": {
-    "car-app": {
+    "sgbd-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/car-app",
+            "outputPath": "dist/sgbd-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "car-app:build:production"
+              "browserTarget": "sgbd-app:build:production"
             },
             "development": {
-              "browserTarget": "car-app:build:development"
+              "browserTarget": "sgbd-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "car-app:build"
+            "browserTarget": "sgbd-app:build"
           }
         },
         "test": {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { Client } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./create-car.component.scss']
 })
 export class CreateCarComponent implements OnInit {
-  car: Car = {
+  car: Client = {
     id: 0,
     brand: "",
     model: "",

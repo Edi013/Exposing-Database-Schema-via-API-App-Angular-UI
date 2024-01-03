@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { Client } from 'src/app/models/car';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CarService } from 'src/app/services/car.service';
 
@@ -11,7 +11,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class ViewCarsComponent implements OnInit {
 
-  cars: Car[];
+  cars: Client[];
 
   constructor(
     private carService: CarService,
@@ -39,7 +39,7 @@ export class ViewCarsComponent implements OnInit {
     this.authenticationService.logout();
   }
 
-  onCardDelete(selectedCar: Car){
+  onCardDelete(selectedCar: Client){
     this.cars = this.cars.filter(car => car.id !== selectedCar.id)
   }
 }

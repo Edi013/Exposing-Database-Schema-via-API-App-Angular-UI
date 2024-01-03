@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Car } from 'src/app/models/car';
+import { Client } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -9,8 +9,8 @@ import { CarService } from 'src/app/services/car.service';
   styleUrls: ['./car-card.component.scss'],
 })
 export class CarCardComponent implements OnInit{
-  @Input() car: Car 
-  @Output() onDelete = new EventEmitter<Car>();
+  @Input() car: Client 
+  @Output() onDelete = new EventEmitter<Client>();
   imageUrl: string
 
   constructor(

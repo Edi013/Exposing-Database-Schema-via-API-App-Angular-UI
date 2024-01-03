@@ -12,7 +12,7 @@ namespace SGBD.Application.Handlers
             this.repository = repository;
         }
 
-        public async Task<Client> Create(Client request)
+        /*public async Task<Client> Create(Client request)
         {
             var newClient = new Client
             {
@@ -59,6 +59,6 @@ namespace SGBD.Application.Handlers
 
             var result = await repository.Update(newClient);
             return result;
-        }
+        }*/
     }
 }

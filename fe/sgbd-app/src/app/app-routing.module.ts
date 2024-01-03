@@ -3,8 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ViewCarsComponent } from './components/view-cars/view-tables.component';
-import { EditCarDetailsComponent } from './components/edit-car-details/edit-client-details.component';
-import { CreateCarComponent } from './components/create-client/create-client.component';
+import { EditClientDetailsComponent } from './components/edit-car-details/edit-client-details.component';
+import { CreateClientComponent } from './components/create-client/create-client.component';
+import { ClientService } from './services/client.service';
 
 const routes: Routes = [
       { 
@@ -13,7 +14,7 @@ const routes: Routes = [
       },
       {
         path: 'edit-car',
-        component: EditCarDetailsComponent,
+        component: EditClientDetailsComponent,
       },
       {
         path: 'view-cars',
@@ -21,7 +22,7 @@ const routes: Routes = [
       },
       {
         path: 'create-car',
-        component: CreateCarComponent,
+        component: CreateClientComponent,
       }
 ];
 

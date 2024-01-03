@@ -1,0 +1,12 @@
+<form (submit)="submitForm()">
+    <label for="firstName">First Name:</label>
+    <input [(ngModel)]="selectedClient.firstName" name="firstName" required>
+    <br>
+
+    <label for="lastName">Last Name:</label>
+    <input [(ngModel)]="selectedClient.lastName" name="lastName" required>
+    <br>
+    
+    <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
+  </form>
+  

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Client } from 'src/app/models/car';
-import { CarService } from 'src/app/services/car.service';
+import { Client } from 'src/app/models/client';
+import { ClientService } from 'src/app/services/client.service';
 
 @Component({
-  selector: 'create-car',
-  templateUrl: './create-car.component.html',
-  styleUrls: ['./create-car.component.scss']
+  selector: 'create-client',
+  templateUrl: './create-client.component.html',
+  styleUrls: ['./create-client.component.scss']
 })
-export class CreateCarComponent implements OnInit {
-  car: Client = {
+export class CreateClientComponent implements OnInit {
+  client: Client = {
     id: 0,
     brand: "",
     model: "",
@@ -21,7 +21,7 @@ export class CreateCarComponent implements OnInit {
   createForm!: FormGroup;
 
   constructor(
-    private carService: CarService, 
+    private clientService: ClientService, 
     private formBuilder: FormBuilder,
     private router: Router) {
    }
@@ -35,14 +35,14 @@ export class CreateCarComponent implements OnInit {
     });
   }
 
-  createCar(){
-    this.carService.createCar(this.car);
+  createClient(){
+    this.clientService.createClient(this.client);
 
-    this.router.navigate(['view-cars']);
+    this.router.navigate(['view-clients']);
   }
 
-  navigateToViewCars(){
-    this.router.navigate(['view-cars']);
+  navigateToViewClients(){
+    this.router.navigate(['view-clients']);
   }
 
   getBrandErrorMessage() {

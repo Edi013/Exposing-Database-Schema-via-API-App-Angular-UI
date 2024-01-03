@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgModule } from '@angular/core';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { ViewCarsComponent } from './components/view-cars/view-cars.component';
-import { CarCardComponent } from './components/car-card/car-card.component';
-import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-details.component';
-import { CreateCarComponent } from './components/create-car/create-car.component';
+import { ViewCarsComponent } from './components/view-cars/view-tables.component';
+import { CarCardComponent } from './components/client-card/client-card.component';
+import { EditCarDetailsComponent } from './components/edit-car-details/edit-client-details.component';
+import { CreateCarComponent } from './components/create-client/create-client.component';
 
 @NgModule({
   declarations: [

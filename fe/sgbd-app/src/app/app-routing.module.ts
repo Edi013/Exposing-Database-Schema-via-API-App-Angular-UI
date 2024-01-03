@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthenticationGuard } from './guards/authentication.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { ViewCarsComponent } from './components/view-cars/view-cars.component';
-import { EditCarDetailsComponent } from './components/edit-car-details/edit-car-details.component';
-import { CreateCarComponent } from './components/create-car/create-car.component';
+import { ViewCarsComponent } from './components/view-cars/view-tables.component';
+import { EditCarDetailsComponent } from './components/edit-car-details/edit-client-details.component';
+import { CreateCarComponent } from './components/create-client/create-client.component';
 
 const routes: Routes = [
       { 

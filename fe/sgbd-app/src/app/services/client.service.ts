@@ -7,7 +7,7 @@ import { last, lastValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class clientService {
+export class ClientService {
 
   private apiUrl: string = environment.apiUrl;
   readonly httpOptions = {
@@ -18,21 +18,21 @@ export class clientService {
 
   constructor(private http: HttpClient) {}
 
-  async getAllclients(): Promise<Client[]> {
+  async getAllClients(): Promise<Client[]> {
     const response = this.http.get<any>(
       `${this.apiUrl}/Client/GetAll`
     );
     return await lastValueFrom(response);
   }
 
-  async updateclient(client: Client): Promise<Client>{
+  async updateClient(client: Client): Promise<Client>{
     const response = this.http.put<Client>(
       `${this.apiUrl}/Client/Update`, client, this.httpOptions
     );
     return await lastValueFrom(response);
   }
 
-  async createclient(client: Client): Promise<Client>{
+  async createClient(client: Client): Promise<Client>{
     const response = this.http.post<Client>(
       `${this.apiUrl}/Client/Add`, client, this.httpOptions
     );
@@ -40,7 +40,7 @@ export class clientService {
     return await lastValueFrom(response);
   }
 
-  async deleteclient(client: Client){
+  async deleteClient(client: Client){
     const response = this.http.delete(`${this.apiUrl}/Client/Delete/${client.id}`, {headers: this.httpOptions.headers});
     
     return await lastValueFrom(response)

@@ -7,9 +7,9 @@ namespace SGBD.DataAccess.Repositories
 {
     public class RepositoryBase<T> : IRepository<T> where T : BaseEntity
     {
-        protected ApplicationDbContext context;
+        protected AppDbContext context;
 
-        public RepositoryBase(ApplicationDbContext context)
+        public RepositoryBase(AppDbContext context)
         {
             this.context = context ?? throw new ArgumentNullException(nameof(context));
         }

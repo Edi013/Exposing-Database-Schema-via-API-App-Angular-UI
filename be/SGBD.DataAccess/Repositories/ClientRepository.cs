@@ -5,7 +5,7 @@ namespace SGBD.DataAccess.Repositories
 {
     public class ClientRepository : RepositoryBase<Client>, IClientRepository
     {
-        public ClientRepository(ApplicationDbContext context)
+        public ClientRepository(AppDbContext context)
             : base(context)
         { }
     }

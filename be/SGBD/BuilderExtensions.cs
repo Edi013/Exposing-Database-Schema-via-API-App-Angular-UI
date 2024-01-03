@@ -22,7 +22,7 @@ namespace SGBD
                  cfg => cfg.RegisterServicesFromAssemblies(typeof(GetAllClientRequest).Assembly));
 
             var connectionString = builder.Configuration.GetConnectionString("SGBD");
-            builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseOracle(connectionString, p => {
+            builder.Services.AddDbContext<AppDbContext>(options => options.UseOracle(connectionString, p => {
                 p.UseOracleSQLCompatibility("11");
             }));
 

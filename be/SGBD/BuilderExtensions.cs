@@ -1,9 +1,9 @@
-﻿using SGBD.Application.Requests.ClientRequests;
+﻿using Microsoft.EntityFrameworkCore;
+using SGBD.Application.Handlers;
 using SGBD.DataAccess;
 using SGBD.DataAccess.Repositories;
-using SGBD.Domain.Models;
 using SGBD.Domain.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using SGBD.Domain.Models;
 
 namespace SGBD
 {
@@ -18,14 +18,12 @@ namespace SGBD
 
             builder.RegisterSwaggerSettings();
 
-            builder.Services.AddMediatR(
-                 cfg => cfg.RegisterServicesFromAssemblies(typeof(GetAllClientRequest).Assembly));
-
             var connectionString = builder.Configuration.GetConnectionString("SGBD");
             builder.Services.AddDbContext<AppDbContext>(options => options.UseOracle(connectionString, p => {
                 p.UseOracleSQLCompatibility("11");
             }));
 
+            builder.Services.AddScoped<ClientHandler, ClientHandler>();
             builder.Services.AddScoped<IRepository<Client>, ClientRepository>();
 
             builder.RegisterAppSettings();
@@ -40,11 +38,12 @@ namespace SGBD
                 options.AddPolicy(name: "CorsPolicy",
                                           policy =>
                                           {
-                                              policy //.AllowAnyOrigin()
-                                              .WithOrigins(frontendAppUrl.Value)
+                                              policy 
+                                              .AllowAnyOrigin()
+                                              //.WithOrigins(frontendAppUrl.Value)
                                               .AllowAnyHeader()
-                                              .AllowAnyMethod()
-                                              .AllowCredentials();
+                                              .AllowAnyMethod();
+                                              //.AllowCredentials();
                                           });
             });
         }

@@ -22,8 +22,8 @@ export class ProviderFormComponent implements OnInit {
       await this.providerService.createProvider(this.selectedProvider);
     }
 
-    await this.providerService.getAllProviders();
     this.selectedProvider = {};
     this.isEditMode = false;
+    await this.providerService.getAllProviders();
   }
 }

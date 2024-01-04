@@ -24,5 +24,6 @@ export class ItemFormComponent implements OnInit {
 
     this.selectedItem = {};
     this.isEditMode = false;
+    await this.itemService.getAllItems();
   }
 }

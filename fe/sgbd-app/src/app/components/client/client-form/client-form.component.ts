@@ -24,5 +24,6 @@ export class ClientFormComponent implements OnInit {
 
     this.selectedClient = {  };
     this.isEditMode = false;
+    await this.clientService.getAllClients();
   }
 }

@@ -30,9 +30,11 @@ export class ClientListComponent implements OnInit {
     this.selectedClient = { ...client };
   }
 
-  deleteClient(client: Client): void {
+  async deleteClient(client: Client): Promise<void> {
     this.isEditMode = false;
     this.clientService.deleteClient(client);
+
+    await this.clientService.getAllClients();
   }
 
   getClientProperties(client: Client): { label: string; value: string }[] {

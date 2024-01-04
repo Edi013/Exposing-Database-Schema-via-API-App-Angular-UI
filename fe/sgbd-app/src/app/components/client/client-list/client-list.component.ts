@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Client } from '../../models/client';
-import { ClientService } from '../../services/client.service';
+import { Client } from '../../../models/client';
+import { ClientService } from '../../../services/client.service';
 import { takeUntil } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -27,7 +27,7 @@ export class ClientListComponent implements OnInit {
 
   editClient(client: Client): void {
     this.isEditMode = true;
-    this.selectedClient = { ...client }; // Create a copy to avoid two-way binding issues
+    this.selectedClient = { ...client };
   }
 
   deleteClient(client: Client): void {

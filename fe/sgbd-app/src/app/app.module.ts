@@ -8,9 +8,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgModule } from '@angular/core';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { ClientListComponent } from './components/client-list/client-list.component';
-import { ClientFormComponent } from './components/client-form/client-form.component';
+import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { ClientFormComponent } from './components/client/client-form/client-form.component';
 import { RouterModule } from '@angular/router';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { OrderFormComponent } from './components/order/order-form/order-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { RouterModule } from '@angular/router';
     HomePageComponent,
     ClientListComponent,
     ClientFormComponent,
+    OrderListComponent,
+    OrderFormComponent,
   ],
   imports: [
     AppRoutingModule,

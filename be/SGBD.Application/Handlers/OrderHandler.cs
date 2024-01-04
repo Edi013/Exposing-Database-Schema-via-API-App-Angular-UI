@@ -1,4 +1,5 @@
-﻿using SGBD.Domain.Interfaces;
+﻿using SGBD.Domain.DTOs;
+using SGBD.Domain.Interfaces;
 using SGBD.Domain.Models;
 
 namespace SGBD.Application.Handlers
@@ -12,7 +13,7 @@ namespace SGBD.Application.Handlers
             this.repository = repository;
         }
 
-        public async Task<Order> Create(Order request)
+        public async Task<Order> Create(OrderDto request)
         {
             var newOrder = new Order
             {
@@ -39,7 +40,7 @@ namespace SGBD.Application.Handlers
             return result;
         }
 
-        public async Task<Order> Update(Order request)
+        public async Task<Order> Update(OrderDto request)
         {
 
             var newOrder = new Order

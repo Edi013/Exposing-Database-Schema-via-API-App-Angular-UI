@@ -57,15 +57,20 @@ export class OrderService {
       prompt('You have an empty client ID. Cannot create order.');
       return Promise.reject('Invalid client ID. Cannot create order.');
     }
-    
+    order.client = null;
     const url = `${this.apiUrl}/Order/Create`;
-    const response = this.http.post<Order>(url, order, this.httpOptions).pipe(
-      tap(() => {
-        const updatedOrders = [...this.ordersSubject.value, order];
-        this.ordersSubject.next(updatedOrders);
-      })
-    );
-    return await lastValueFrom(response);
+    try{
+        const response = this.http.post<Order>(url, order, this.httpOptions).pipe(
+            tap(() => {
+              const updatedOrders = [...this.ordersSubject.value, order];
+              this.ordersSubject.next(updatedOrders);
+            })
+          );
+        return await lastValueFrom(response);
+    }catch(error) {
+        prompt("Invalid Key inserted");
+    }
+    return Promise.reject('Invalid Key inserted. Cannot create order.');
   }
 
   async deleteOrder(order: Order): Promise<void> {

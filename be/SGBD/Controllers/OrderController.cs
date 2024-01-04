@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SGBD.Application.Handlers;
+using SGBD.Domain.DTOs;
 using SGBD.Domain.Models;
 
 namespace SGBD.Controllers
@@ -23,9 +24,10 @@ namespace SGBD.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<Order> Create(Order req)
+        public async Task<Order> Create(OrderDto req)
         {
-            return await handler.Create(req);
+            var result = await handler.Create(req);
+            return result;
         }
 
         [HttpDelete("Delete/{id}")]
@@ -35,7 +37,7 @@ namespace SGBD.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<Order> Update(Order req)
+        public async Task<Order> Update(OrderDto req)
         {
             return await handler.Update(req);
         }

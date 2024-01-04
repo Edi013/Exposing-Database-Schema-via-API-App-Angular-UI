@@ -1,1 +1,20 @@
-<p>order-form works!</p>
+<form (submit)="submitForm()">
+    <label for="clientId">Client Id:</label>
+    <input [(ngModel)]="selectedOrder.clientId" name="clientId" required>
+    <br>
+  
+    <label for="orderDate">Order Date:</label>
+    <input [(ngModel)]="selectedOrder.orderDate" name="orderDate" required>
+    <br>
+  
+    <label for="deliveryDate">Delivery Date:</label>
+    <input [(ngModel)]="selectedOrder.deliveryDate" name="deliveryDate" required>
+    <br>
+  
+    <label for="payDate">Pay Date:</label>
+    <input [(ngModel)]="selectedOrder.payDate" name="payDate" required>
+    <br>
+  
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }} Order</button>
+  </form>
+  

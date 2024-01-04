@@ -22,14 +22,6 @@ export class ClientService {
   {
   }
 
-  // async getAllClients(): Promise<Client[]> {
-  //     const response = this.http.get<any>(
-  //     `${this.apiUrl}/Client/GetAll`, this.httpOptions
-  //   );
-
-  //   //var result = await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));
-  //   return await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));;
-  // }
   async getAllClients(): Promise<Client[]> {
     const response = this.http.get<Client[]>(`${this.apiUrl}/Client/GetAll`, this.httpOptions);
   
@@ -39,11 +31,16 @@ export class ClientService {
       return clients;
     } catch (error) {
       console.error('Error fetching clients', error);
-      throw error; // Rethrow the error to the caller
+      throw error; 
     }
   }
 
   async updateClient(client: Client): Promise<Client> {
+    if (client.id === undefined || client.address === undefined || client.city === undefined || client.company === undefined ||
+      client.firstName === undefined || client.lastName === undefined || client.phoneNumber === undefined ||  client.postalCode  === undefined) {
+      prompt('You have empty fields . Cannot create client.');
+      return Promise.reject('Invalid client ID. Cannot create client.');
+    }
     const url = `${this.apiUrl}/Client/Update`;
 
     var response = this.http.put<Client>(url, client, this.httpOptions).pipe(

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
 
 const routes: Routes = [
       { 
@@ -14,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'view-order',
-        component: ClientListComponent,
+        component: OrderListComponent,
       },
       {
         path: 'view-item',

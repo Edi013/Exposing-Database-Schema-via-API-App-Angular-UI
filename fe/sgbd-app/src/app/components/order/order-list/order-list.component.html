@@ -1,1 +1,13 @@
-<p>order-list works!</p>
+<button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+
+<div *ngFor="let order of orders">
+  <div class="container">
+    <div *ngFor="let property of getOrderProperties(order)">
+      {{ property.label }}: {{ property.value }}
+    </div>
+    <button mat-raised-button color="primary" (click)="editOrder(order)">Edit</button>
+    <button mat-raised-button color="accent" (click)="deleteOrder(order)">Delete</button>
+  </div>
+</div>
+
+<app-order-form [isEditMode]="isEditMode" [selectedOrder]="selectedOrder"></app-order-form>

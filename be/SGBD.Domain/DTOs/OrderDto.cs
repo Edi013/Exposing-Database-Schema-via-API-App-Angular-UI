@@ -10,8 +10,8 @@ namespace SGBD.Domain.DTOs
     {
         public decimal? Id { get; set; }
         public decimal? ClientId { get; set; }
-        public DateTime? OrderDate { get; set; }
-        public DateTime? DeliveryDate { get; set; }
-        public DateTime? PayDate { get; set; }
+        public string? OrderDate { get; set; }
+        public string? DeliveryDate { get; set; }
+        public string? PayDate { get; set; }
     }
 }

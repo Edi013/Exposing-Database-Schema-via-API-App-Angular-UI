@@ -74,10 +74,11 @@ export class OrderService {
   }
 
   async deleteOrder(order: Order): Promise<void> {
-    const url = `${this.apiUrl}/Order/Delete/${order.clientId}`;
-    const response = this.http.delete<void>(url, { headers: this.httpOptions.headers }).pipe(
+    const url = `${this.apiUrl}/Order/Delete/${order.id}`;
+    const response = this.http.delete<void>(url, { headers: this.httpOptions.headers })
+    .pipe(
       tap(() => {
-        const updatedOrders = this.ordersSubject.value.filter((o) => o.clientId !== order.clientId);
+        const updatedOrders = this.ordersSubject.value.filter((o) => o.id !== order.id);
         this.ordersSubject.next(updatedOrders);
       })
     );

@@ -1,13 +1,11 @@
-﻿namespace SGBD.Domain.Models
+﻿namespace SGBD.Domain.DTOs
 {
-    public partial class Item : BaseEntity
+    public class ItemDto
     {
+        public decimal Id { get; set; }
         public decimal? OrderId { get; set; }
         public decimal? StorageLocationId { get; set; }
         public decimal? Quantity { get; set; }
         public decimal? TotalPrice { get; set; }
-
-        public virtual Order? Order { get; set; }
-        public virtual StorageLocation? StorageLocation { get; set; }
     }
 }

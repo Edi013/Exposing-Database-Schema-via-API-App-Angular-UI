@@ -48,6 +48,7 @@ namespace SGBD
                                           policy =>
                                           {
                                               policy
+                                              //.AllowAnyOrigin()
                                               .WithOrigins(frontendAppUrl.Value)
                                               .AllowAnyHeader()
                                               .AllowAnyMethod();

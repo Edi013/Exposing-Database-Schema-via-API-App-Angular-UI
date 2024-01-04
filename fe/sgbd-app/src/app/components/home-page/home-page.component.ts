@@ -25,13 +25,9 @@ export class HomePageComponent implements OnInit {
     this.router.navigate(['view-provider']);
   }
   navigateToViewStorageLocation() {
-    this.router.navigate(['view-storageLocation']);
+    this.router.navigate(['view-storage-location']);
   }
   navigateToViewItem() {
     this.router.navigate(['view-item']);
   }
-
-  // navigateToHome(){
-  //   this.router.navigate([""])
-  // }
 }

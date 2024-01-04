@@ -1,4 +1,7 @@
-<button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+<div class="topBar">
+  <button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+  <button mat-raised-button color="primary" (click)="toggleEditMode()">Toggle Edit Mode</button>
+</div>
 
 <div *ngFor="let provider of providers">
   <div class="container">

@@ -48,4 +48,8 @@ export class ProviderListComponent implements OnInit {
   navigateHome() {
     this.router.navigate(['']);
   }
+  
+  toggleEditMode(){
+    this.isEditMode = ! this.isEditMode;
+  }
 }

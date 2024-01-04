@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'sgbd-app';
+  title = 'Database-Schema-Exposure-via-API-App';
 
   constructor(
     private router : Router,

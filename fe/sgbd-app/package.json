@@ -1,5 +1,5 @@
 {
-  "name": "sgbd-app",
+  "name": "database-schema-exposure-via-api-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

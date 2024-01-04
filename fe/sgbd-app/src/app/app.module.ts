@@ -15,6 +15,10 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { OrderFormComponent } from './components/order/order-form/order-form.component';
 import { ProviderListComponent } from './components/provider/provider-list/provider-list.component';
 import { ProviderFormComponent } from './components/provider/provider-form/provider-form.component';
+import { StorageLocationListComponent } from './components/storageLocation/storage-location-list/storage-location-list.component';
+import { StorageLocationFormComponent } from './components/storageLocation/storage-location-form/storage-location-form.component';
+import { ItemListComponent } from './components/item/item-list/item-list.component';
+import { ItemFormComponent } from './components/item/item-form/item-form.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { ProviderFormComponent } from './components/provider/provider-form/provi
     OrderFormComponent,
     ProviderListComponent,
     ProviderFormComponent,
+    StorageLocationListComponent,
+    StorageLocationFormComponent,
+    ItemListComponent,
+    ItemFormComponent,
   ],
   imports: [
     AppRoutingModule,

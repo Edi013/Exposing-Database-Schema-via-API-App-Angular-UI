@@ -4,6 +4,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import { ProviderListComponent } from './components/provider/provider-list/provider-list.component';
+import { StorageLocationListComponent } from './components/storageLocation/storage-location-list/storage-location-list.component';
+import { ItemListComponent } from './components/item/item-list/item-list.component';
 
 const routes: Routes = [
       { 
@@ -20,11 +22,11 @@ const routes: Routes = [
       },
       {
         path: 'view-item',
-        component: ClientListComponent,
+        component: ItemListComponent,
       },
       {
-        path: 'view-storageLocation',
-        component: ClientListComponent,
+        path: 'view-storage-location',
+        component: StorageLocationListComponent,
       },
       {
         path: 'view-provider',

@@ -1,4 +1,5 @@
-﻿using SGBD.Domain.Interfaces;
+﻿using SGBD.Domain.DTOs;
+using SGBD.Domain.Interfaces;
 using SGBD.Domain.Models;
 
 namespace SGBD.Application.Handlers
@@ -12,14 +13,13 @@ namespace SGBD.Application.Handlers
             this.repository = repository;
         }
 
-        public async Task<Item> Create(Item request)
+        public async Task<Item> Create(ItemDto request)
         {
             var newItem = new Item
             {
                 Id = request.Id,
                 OrderId = request.OrderId,
                 StorageLocationId = request.StorageLocationId,
-                StorageLocation = request.StorageLocation,
                 Quantity = request.Quantity,
                 TotalPrice = request.TotalPrice,
             };
@@ -34,13 +34,26 @@ namespace SGBD.Application.Handlers
             return result;
         }
 
-        public async Task<IEnumerable<Item>> GetAll()
+        public async Task<IEnumerable<ItemDto>> GetAll()
         {
-            var result = await repository.GetAll();
+            var items = await repository.GetAll();
+            IEnumerable<ItemDto> result = new List<ItemDto>();
+
+            foreach (var item in items)
+            {
+                result = result.Append(new ItemDto
+                {
+                    Id = item.Id,
+                    OrderId = item.OrderId,
+                    StorageLocationId = item.StorageLocationId,
+                    Quantity = item.Quantity,
+                    TotalPrice = item.TotalPrice,
+                });
+            }
             return result;
         }
 
-        public async Task<Item> Update(Item request)
+        public async Task<Item> Update(ItemDto request)
         {
 
             var newItem = new Item
@@ -48,7 +61,6 @@ namespace SGBD.Application.Handlers
                Id = request.Id,
                OrderId = request.OrderId,
                StorageLocationId = request.StorageLocationId,
-               StorageLocation = request.StorageLocation,
                Quantity = request.Quantity,
                TotalPrice = request.TotalPrice,
             };

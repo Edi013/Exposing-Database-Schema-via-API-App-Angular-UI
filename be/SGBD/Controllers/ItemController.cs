@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SGBD.Application.Handlers;
+using SGBD.Domain.DTOs;
 using SGBD.Domain.Models;
 
 namespace SGBD.Controllers
@@ -16,14 +17,14 @@ namespace SGBD.Controllers
         }
 
         [HttpGet("GetAll")]
-        public async Task<IEnumerable<Item>> GetAll()
+        public async Task<IEnumerable<ItemDto>> GetAll()
         {
             var result = await handler.GetAll();
             return result;
         }
 
         [HttpPost("Create")]
-        public async Task<Item> Create(Item req)
+        public async Task<Item> Create(ItemDto req)
         {
             return await handler.Create(req);
         }
@@ -35,7 +36,7 @@ namespace SGBD.Controllers
         }
 
         [HttpPut("Update")]
-        public async Task<Item> Update(Item req)
+        public async Task<Item> Update(ItemDto req)
         {
             return await handler.Update(req);
         }

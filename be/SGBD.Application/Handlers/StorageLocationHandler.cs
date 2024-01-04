@@ -1,5 +1,8 @@
-﻿using SGBD.Domain.Interfaces;
+﻿using SGBD.Domain.DTOs;
+using SGBD.Domain.Interfaces;
 using SGBD.Domain.Models;
+using System.Linq;
+
 
 namespace SGBD.Application.Handlers
 {
@@ -12,7 +15,7 @@ namespace SGBD.Application.Handlers
             this.repository = repository;
         }
 
-        public async Task<StorageLocation> Create(StorageLocation request)
+        public async Task<StorageLocation> Create(StorageLocationDto request)
         {
             var newStorageLocation = new StorageLocation
             {
@@ -33,13 +36,26 @@ namespace SGBD.Application.Handlers
             return result;
         }
 
-        public async Task<IEnumerable<StorageLocation>> GetAll()
+        public async Task<IEnumerable<StorageLocationDto>> GetAll()
         {
-            var result = await repository.GetAll();
-            return result;
+            IEnumerable<StorageLocationDto> results = new List<StorageLocationDto>();
+
+            var locations = await repository.GetAll();
+
+            foreach(var storageLocation in locations) { 
+                results = results.Append(new StorageLocationDto
+                {
+                    Id = storageLocation.Id,
+                    LocationDescription = storageLocation.LocationDescription,
+                    LocationName = storageLocation.LocationName,
+                    ProviderId = storageLocation.ProviderId,
+                    UnitPrice = storageLocation.UnitPrice
+                }); 
+            }
+            return results;
         }
 
-        public async Task<StorageLocation> Update(StorageLocation request)
+        public async Task<StorageLocation> Update(StorageLocationDto request)
         {
 
             var newStorageLocation = new StorageLocation

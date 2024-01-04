@@ -15,7 +15,23 @@ const routes: Routes = [
       {
         path: 'view-client',
         component: ClientListComponent,
-      }
+      },
+      {
+        path: 'view-order',
+        component: ClientListComponent,
+      },
+      {
+        path: 'view-item',
+        component: ClientListComponent,
+      },
+      {
+        path: 'view-storageLocation',
+        component: ClientListComponent,
+      },
+      {
+        path: 'view-provider',
+        component: ClientListComponent,
+      },
       // {
       //   path: 'edit-car',
       //   component: EditClientDetailsComponent,

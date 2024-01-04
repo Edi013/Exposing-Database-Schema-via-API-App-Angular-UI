@@ -8,22 +8,21 @@ import { ClientService } from '../../services/client.service';
   styleUrls: ['./client-form.component.scss'],
 })
 export class ClientFormComponent implements OnInit {
-  @Input() selectedClient: Client = { id: 0, firstName: '', lastName: ''};
+  @Input() selectedClient: Client = { };
   @Input() isEditMode = false;
 
   constructor(private clientService: ClientService) {}
 
   ngOnInit(): void {}
 
-  submitForm(): void {
+  async submitForm(): Promise<void> {
     if (this.isEditMode) {
-      this.clientService.updateClient(this.selectedClient).subscribe();
+      await this.clientService.updateClient(this.selectedClient);
     } else {
-      this.clientService.createClient(this.selectedClient).subscribe();
+      await this.clientService.createClient(this.selectedClient);
     }
 
-    // Clear the form after submission
-    this.selectedClient = { id: 0, firstName: '', lastName: '' };
+    this.selectedClient = {  };
     this.isEditMode = false;
   }
 }

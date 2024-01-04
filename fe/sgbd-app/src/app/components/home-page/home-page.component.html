@@ -1,4 +1,9 @@
 <div class="container">
-  <button mat-raised-button color="primary" (click)="navigateToHome()">Home</button>
-  <button mat-raised-button color="primary" *ngIf="userLoggedIn" (click)="navigateToViewCars()">View cars</button>
+  <button mat-raised-button color="primary" (click)="navigateToViewCliet()">View clients</button>
+  <button mat-raised-button color="primary" (click)="navigateToViewOrder()">View orders</button>
+  <button mat-raised-button color="primary" (click)="navigateToViewCliet()">View items</button>
+  <button mat-raised-button color="primary" (click)="navigateToViewCliet()">View storage locations</button>
+  <button mat-raised-button color="primary" (click)="navigateToViewCliet()">View providers</button>
 </div>
+
+<router-outlet></router-outlet>

@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { NgModule } from '@angular/core';
-//import { HomePageComponent } from './components/home-page/home-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
 import { RouterModule } from '@angular/router';
@@ -15,7 +15,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    //HomePageComponent,
+    HomePageComponent,
     ClientListComponent,
     ClientFormComponent,
   ],
@@ -27,6 +27,7 @@ import { RouterModule } from '@angular/router';
     MaterialModule,
     RouterModule,
   ],
+  exports: [RouterModule],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
     { provide: DatePipe }

@@ -15,15 +15,14 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
   }
 
-  navigateToViewCars() {
-    if(this.userLoggedIn == false){
-      prompt("Log in first.")
-      return;
-    }
-    this.router.navigate(['view-cars']);
+  navigateToViewCliet() {
+    this.router.navigate(['view-client']);
+  }
+  navigateToViewOrder() {
+    this.router.navigate(['view-order']);
   }
 
-  navigateToHome(){
-    this.router.navigate([""])
-  }
+  // navigateToHome(){
+  //   this.router.navigate([""])
+  // }
 }

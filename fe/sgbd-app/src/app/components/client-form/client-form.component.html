@@ -27,6 +27,10 @@
     <input [(ngModel)]="selectedClient.phoneNumber" name="phoneNumber" required>
     <br>
 
-    <button type="submit">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
+    <label for="company">Company:</label>
+    <input [(ngModel)]="selectedClient.company" name="company" required>
+    <br>
+
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }} Client</button>
   </form>
   

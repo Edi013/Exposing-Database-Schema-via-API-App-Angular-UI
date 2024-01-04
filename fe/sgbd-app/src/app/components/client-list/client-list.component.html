@@ -1,7 +1,12 @@
-<div *ngFor="let client of clients ">
-    {{ client.firstName }} {{ client.lastName }}
-    <button (click)="editClient(client)">Edit</button>
-    <button (click)="deleteClient(client)">Delete</button>
+<button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+<div *ngFor="let client of clients">
+    <div class="container">
+        <div *ngFor="let property of getClientProperties(client)">
+            {{ property.label }}: {{ property.value }}
+        </div>
+        <button mat-raised-button color="primary" (click)="editClient(client)">Edit</button>
+        <button mat-raised-button color="accent" (click)="deleteClient(client)">Delete</button>
+    </div>
 </div>
 <app-client-form [isEditMode]="isEditMode" [selectedClient]="selectedClient"></app-client-form>
   

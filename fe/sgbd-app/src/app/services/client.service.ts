@@ -18,77 +18,70 @@ export class ClientService {
   private clientsSubject = new BehaviorSubject<Client[]>([]);
   clients$: Observable<Client[]> = this.clientsSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
-
-  async getAllClients(): Promise<void> {
-      const response = this.http.get<any>(
-      `${this.apiUrl}/Client/GetAll`, this.httpOptions
-    );
-
-    var result = await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));
-    return result;
+  constructor(private http: HttpClient) 
+  {
   }
 
-  updateClient(client: Client): Observable<Client> {
+  // async getAllClients(): Promise<Client[]> {
+  //     const response = this.http.get<any>(
+  //     `${this.apiUrl}/Client/GetAll`, this.httpOptions
+  //   );
+
+  //   //var result = await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));
+  //   return await lastValueFrom(response).then((clients) => this.clientsSubject.next(clients));;
+  // }
+  async getAllClients(): Promise<Client[]> {
+    const response = this.http.get<Client[]>(`${this.apiUrl}/Client/GetAll`, this.httpOptions);
+  
+    try {
+      const clients = await lastValueFrom(response);
+      this.clientsSubject.next(clients);
+      return clients;
+    } catch (error) {
+      console.error('Error fetching clients', error);
+      throw error; // Rethrow the error to the caller
+    }
+  }
+
+  async updateClient(client: Client): Promise<Client> {
     const url = `${this.apiUrl}/Client/Update`;
-    return this.http.put<Client>(url, client, this.httpOptions).pipe(
-      tap(() => {
-        // Update the list after successful update
+
+    var response = this.http.put<Client>(url, client, this.httpOptions).pipe(
+      tap((updatedClient) => {
         const updatedClients = this.clientsSubject.value.map((c) =>
-          c.id === client.id ? { ...c, ...client } : c
+          c.id === updatedClient.id ? { ...c, ...updatedClient } : c
         );
         this.clientsSubject.next(updatedClients);
       })
     );
+    return await lastValueFrom(response);
   }
 
-  createClient(client: Client): Observable<Client> {
-    const url = `${this.apiUrl}/Client/Add`;
-    return this.http.post<Client>(url, client, this.httpOptions).pipe(
+  async createClient(client: Client): Promise<Client> {
+    if (client.id === undefined || client.address === undefined || client.city === undefined || client.company === undefined ||
+          client.firstName === undefined || client.lastName === undefined || client.phoneNumber === undefined ||  client.postalCode  === undefined) {
+      prompt('You have empty fields . Cannot create client.');
+      return Promise.reject('Invalid client ID. Cannot create client.');
+    }
+    
+    const url = `${this.apiUrl}/Client/Create`;
+    var response = this.http.post<Client>(url, client, this.httpOptions).pipe(
       tap(() => {
-        // Update the list after successful creation
         const updatedClients = [...this.clientsSubject.value, client];
         this.clientsSubject.next(updatedClients);
       })
     );
+    return await lastValueFrom(response)
   }
 
-  deleteClient(client: Client): Observable<void> {
+  async deleteClient(client: Client): Promise<void> {
     const url = `${this.apiUrl}/Client/Delete/${client.id}`;
-    return this.http.delete<void>(url, { headers: this.httpOptions.headers }).pipe(
+    var response = this.http.delete<void>(url, { headers: this.httpOptions.headers }).pipe(
       tap(() => {
-        // Update the list after successful deletion
         const updatedClients = this.clientsSubject.value.filter((c) => c.id !== client.id);
         this.clientsSubject.next(updatedClients);
       })
     );
+    return await lastValueFrom(response)
   }
-
-  // async getAllClients(): Promise<Client[]> {
-  //   const response = this.http.get<any>(
-  //     `${this.apiUrl}/Client/GetAll`
-  //   );
-  //   return await lastValueFrom(response);
-  // }
-
-  // async updateClient(client: Client): Promise<Client>{
-  //   const response = this.http.put<Client>(
-  //     `${this.apiUrl}/Client/Update`, client, this.httpOptions
-  //   );
-  //   return await lastValueFrom(response);
-  // }
-
-  // async createClient(client: Client): Promise<Client>{
-  //   const response = this.http.post<Client>(
-  //     `${this.apiUrl}/Client/Add`, client, this.httpOptions
-  //   );
-
-  //   return await lastValueFrom(response);
-  // }
-
-  // async deleteClient(client: Client){
-  //   const response = this.http.delete(`${this.apiUrl}/Client/Delete/${client.id}`, {headers: this.httpOptions.headers});
-    
-  //   return await lastValueFrom(response)
-  // }
 }

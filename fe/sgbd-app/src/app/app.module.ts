@@ -13,6 +13,8 @@ import { ClientFormComponent } from './components/client/client-form/client-form
 import { RouterModule } from '@angular/router';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
 import { OrderFormComponent } from './components/order/order-form/order-form.component';
+import { ProviderListComponent } from './components/provider/provider-list/provider-list.component';
+import { ProviderFormComponent } from './components/provider/provider-form/provider-form.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { OrderFormComponent } from './components/order/order-form/order-form.com
     ClientFormComponent,
     OrderListComponent,
     OrderFormComponent,
+    ProviderListComponent,
+    ProviderFormComponent,
   ],
   imports: [
     AppRoutingModule,

@@ -32,8 +32,6 @@ export class OrderListComponent implements OnInit {
   async deleteOrder(order: Order): Promise<void> {
     this.isEditMode = false;
     this.orderService.deleteOrder(order);
-    
-    await this.orderService.getAllOrders();
   }
 
   getOrderProperties(order: Order): { label: string; value: string }[] {

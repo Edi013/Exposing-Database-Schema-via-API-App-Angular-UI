@@ -21,6 +21,15 @@ export class HomePageComponent implements OnInit {
   navigateToViewOrder() {
     this.router.navigate(['view-order']);
   }
+  navigateToViewProvider() {
+    this.router.navigate(['view-provider']);
+  }
+  navigateToViewStorageLocation() {
+    this.router.navigate(['view-storageLocation']);
+  }
+  navigateToViewItem() {
+    this.router.navigate(['view-item']);
+  }
 
   // navigateToHome(){
   //   this.router.navigate([""])

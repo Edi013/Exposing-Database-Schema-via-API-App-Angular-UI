@@ -22,7 +22,6 @@ export class OrderFormComponent implements OnInit {
       await this.orderService.createOrder(this.selectedOrder);
     }
     
-    await this.orderService.getAllOrders();
     this.selectedOrder = {};
     this.isEditMode = false;
   }

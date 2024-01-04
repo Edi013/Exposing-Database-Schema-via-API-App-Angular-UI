@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ClientListComponent } from './components/client/client-list/client-list.component';
 import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { ProviderListComponent } from './components/provider/provider-list/provider-list.component';
 
 const routes: Routes = [
       { 
@@ -27,7 +28,7 @@ const routes: Routes = [
       },
       {
         path: 'view-provider',
-        component: ClientListComponent,
+        component: ProviderListComponent,
       },
 ];
 

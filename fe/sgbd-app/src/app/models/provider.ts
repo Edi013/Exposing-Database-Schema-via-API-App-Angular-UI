@@ -1,5 +1,5 @@
 export interface Provider{
-    id: number;
+    id?: number;
     providerName?: string;
     executionDuration?: number;
   }

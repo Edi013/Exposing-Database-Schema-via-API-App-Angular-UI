@@ -1,0 +1,16 @@
+<form (submit)="submitForm()">
+    <label for="id">Id:</label>
+    <input [(ngModel)]="selectedProvider.id" name="id" required>
+    <br>
+
+    <label for="providerName">Provider Name:</label>
+    <input [(ngModel)]="selectedProvider.providerName" name="providerName" required>
+    <br>
+  
+    <label for="executionDuration">Execution Duration:</label>
+    <input [(ngModel)]="selectedProvider.executionDuration" name="executionDuration" required>
+    <br>
+  
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }} Provider</button>
+  </form>
+  

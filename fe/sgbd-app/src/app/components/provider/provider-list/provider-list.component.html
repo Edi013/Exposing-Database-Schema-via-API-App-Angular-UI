@@ -1,0 +1,13 @@
+<button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+
+<div *ngFor="let provider of providers">
+  <div class="container">
+    <div *ngFor="let property of getProviderProperties(provider)">
+      {{ property.label }}: {{ property.value }}
+    </div>
+    <button mat-raised-button color="primary" (click)="editProvider(provider)">Edit</button>
+    <button mat-raised-button color="accent" (click)="deleteProvider(provider)">Delete</button>
+  </div>
+</div>
+
+<app-provider-form [isEditMode]="isEditMode" [selectedProvider]="selectedProvider"></app-provider-form>

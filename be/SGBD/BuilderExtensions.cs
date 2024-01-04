@@ -48,12 +48,9 @@ namespace SGBD
                                           policy =>
                                           {
                                               policy
-                                              //.SetIsOriginAllowed(origin => true) // allow any origin
-                                              .AllowAnyOrigin()
-                                              //.WithOrigins(frontendAppUrl.Value)
+                                              .WithOrigins(frontendAppUrl.Value)
                                               .AllowAnyHeader()
                                               .AllowAnyMethod();
-                                              //.AllowCredentials();
                                           });
             });
         }

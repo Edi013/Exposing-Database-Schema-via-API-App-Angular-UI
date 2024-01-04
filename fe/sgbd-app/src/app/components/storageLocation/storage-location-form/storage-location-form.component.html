@@ -1,0 +1,19 @@
+<form (submit)="submitForm()">
+    <label for="providerId">Provider Id:</label>
+    <input [(ngModel)]="selectedStorageLocation.providerId" name="providerId" required>
+    <br>
+
+    <label for="unitPrice">Unit Price:</label>
+    <input [(ngModel)]="selectedStorageLocation.unitPrice" name="unitPrice" required>
+    <br>
+
+    <label for="locationName">Location Name:</label>
+    <input [(ngModel)]="selectedStorageLocation.locationName" name="locationName" required>
+    <br>
+
+    <label for="locationDescription">Location Description:</label>
+    <input [(ngModel)]="selectedStorageLocation.locationDescription" name="locationDescription" required>
+    <br>
+
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }} Storage Location</button>
+</form>

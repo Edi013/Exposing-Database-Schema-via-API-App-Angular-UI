@@ -1,0 +1,16 @@
+<div class="topBar">
+  <button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+  <button mat-raised-button color="primary" (click)="toggleEditMode()">Toggle Edit Mode</button>
+</div>
+
+<div *ngFor="let storageLocation of storageLocations">
+  <div class="container">
+    <div *ngFor="let property of getStorageLocationProperties(storageLocation)">
+      {{ property.label }}: {{ property.value }}
+    </div>
+    <button mat-raised-button color="primary" (click)="editStorageLocation(storageLocation)">Edit</button>
+    <button mat-raised-button color="accent" (click)="deleteStorageLocation(storageLocation)">Delete</button>
+  </div>
+</div>
+
+<app-storage-location-form [isEditMode]="isEditMode" [selectedStorageLocation]="selectedStorageLocation"></app-storage-location-form>

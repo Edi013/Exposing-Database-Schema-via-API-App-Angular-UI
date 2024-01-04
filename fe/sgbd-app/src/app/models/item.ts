@@ -1,5 +1,5 @@
 export interface Item {
-    id: number;
+    id?: number;
     orderId?: number;
     storageLocationId?: number;
     quantity?: number;

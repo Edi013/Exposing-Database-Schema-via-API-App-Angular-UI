@@ -1,0 +1,20 @@
+<form (submit)="submitForm()">
+    <label for="orderId">Order Id:</label>
+    <input [(ngModel)]="selectedItem.orderId" name="orderId" required>
+    <br>
+  
+    <label for="storageLocationId">Storage Location Id:</label>
+    <input [(ngModel)]="selectedItem.storageLocationId" name="storageLocationId" required>
+    <br>
+  
+    <label for="quantity">Quantity:</label>
+    <input [(ngModel)]="selectedItem.quantity" name="quantity" required>
+    <br>
+  
+    <label for="totalPrice">Total Price:</label>
+    <input [(ngModel)]="selectedItem.totalPrice" name="totalPrice" required>
+    <br>
+  
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Add' }} Item</button>
+  </form>
+  

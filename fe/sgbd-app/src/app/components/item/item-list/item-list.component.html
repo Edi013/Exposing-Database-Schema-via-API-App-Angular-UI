@@ -1,0 +1,16 @@
+<div class="topBar">
+  <button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+  <button mat-raised-button color="primary" (click)="toggleEditMode()">Toggle Edit Mode</button>
+</div>
+
+<div *ngFor="let item of items">
+  <div class="container">
+    <div *ngFor="let property of getItemProperties(item)">
+      {{ property.label }}: {{ property.value }}
+    </div>
+    <button mat-raised-button color="primary" (click)="editItem(item)">Edit</button>
+    <button mat-raised-button color="accent" (click)="deleteItem(item)">Delete</button>
+  </div>
+</div>
+
+<app-item-form [isEditMode]="isEditMode" [selectedItem]="selectedItem"></app-item-form>

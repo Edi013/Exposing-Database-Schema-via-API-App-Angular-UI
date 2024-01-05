@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SGBD.Application.Handlers;
 using SGBD.Domain.DTOs;
+using SGBD.Domain.Interfaces;
 using SGBD.Domain.Models;
 
 namespace SGBD.Controllers
@@ -20,6 +21,26 @@ namespace SGBD.Controllers
         public async Task<IEnumerable<Order>> GetAll()
         {
             var result = await handler.GetAll();
+            return result;
+        }
+        [HttpGet("GetEachOrderStatistics")]
+        public async Task<IQueryable<EachOrderDto>> GetEachOrderStatistics()
+        {
+            var result = await handler.GetEachOrderStatistics();
+            return result;
+        }
+
+        [HttpGet("GetOverallOrderStatistics")]
+        public async Task<OverallOrderStatisticsDto> GetOverallOrderStatistics()
+        {
+            var result = await handler.GetOverallOrderStatistics();
+            return result;
+        }
+
+        [HttpGet("GetNeverOrderedItems")]
+        public async Task<IEnumerable<NeverOrderedItemDto>> GetNeverOrderedItems()
+        {
+            var result = await handler.GetNeverOrderedItems();
             return result;
         }
 

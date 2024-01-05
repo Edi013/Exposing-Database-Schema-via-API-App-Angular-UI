@@ -30,7 +30,7 @@ namespace SGBD
             builder.Services.AddScoped<ProviderHandler, ProviderHandler>();
 
             builder.Services.AddScoped<IRepository<Client>, ClientRepository>();
-            builder.Services.AddScoped<IRepository<Order>, OrderRepository>();
+            builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             builder.Services.AddScoped<IRepository<Item>, ItemRepository>();
             builder.Services.AddScoped<IRepository<StorageLocation>, StorageLocationRepository>();
             builder.Services.AddScoped<IRepository<Provider>, ProviderRepository>();

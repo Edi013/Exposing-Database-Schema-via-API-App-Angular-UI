@@ -8,10 +8,10 @@ namespace SGBD.Application.Handlers
 {
     public class OrderHandler
     {
-        IRepository<Order> repository;
+        IOrderRepository repository;
         private readonly IConfiguration _configuration;
 
-        public OrderHandler(IRepository<Order> repository, IConfiguration _configuration)
+        public OrderHandler(IOrderRepository repository, IConfiguration _configuration)
         {
             this.repository = repository;
             this._configuration = _configuration;
@@ -74,7 +74,25 @@ namespace SGBD.Application.Handlers
             var result = await repository.Update(newOrder);
             return result;
         }
-        
+   
+        public async Task<IQueryable<EachOrderDto>> GetEachOrderStatistics()
+        {
+            var result = await repository.GetOrderStatiGetEachOrderStatistics();
+            return result;
+        }
+
+        public async Task<OverallOrderStatisticsDto> GetOverallOrderStatistics()
+        {
+            var result = await repository.GetOverallOrderStatistics();
+            return result;
+        }
+
+        public async Task<IEnumerable<NeverOrderedItemDto>> GetNeverOrderedItems()
+        {
+            var result = await repository.GetNeverOrderedItems();
+            return result;
+        }
+
         private void tryParseStringToDateTime(in string input, out DateTime output, string[] dateTimeFormat)
         {
             if(input == null) {

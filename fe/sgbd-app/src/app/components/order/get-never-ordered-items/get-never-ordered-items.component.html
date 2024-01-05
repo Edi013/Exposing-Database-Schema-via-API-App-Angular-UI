@@ -1,0 +1,14 @@
+<div class="topBar">
+    <button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+  </div>
+  
+  <div *ngFor="let item of neverOrderedItems">
+    <div class="container">
+      <div class="card" *ngFor="let property of getNeverOrderedItemsProperties(item)">
+        {{ property.label }}: {{ property.value }}
+      </div>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  

@@ -1,4 +1,11 @@
 .container{
     display: flex;
     justify-content: space-evenly;
+    
+    padding: 5px;
+    margin: 20px;
+}
+
+.divContainer{
+    border: 5px solid black;
 }

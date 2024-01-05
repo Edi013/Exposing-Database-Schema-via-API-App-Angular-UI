@@ -6,6 +6,9 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { ProviderListComponent } from './components/provider/provider-list/provider-list.component';
 import { StorageLocationListComponent } from './components/storageLocation/storage-location-list/storage-location-list.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
+import { GetEachOrderStatisticsComponent } from './components/order/get-each-order-statistics/get-each-order-statistics.component';
+import { GetNeverOrderedItemsComponent } from './components/order/get-never-ordered-items/get-never-ordered-items.component';
+import { GetOverallOrderStatisticsComponent } from './components/order/get-overall-order-statistics/get-overall-order-statistics.component';
 
 const routes: Routes = [
       { 
@@ -31,6 +34,18 @@ const routes: Routes = [
       {
         path: 'view-provider',
         component: ProviderListComponent,
+      },
+      {
+        path: 'view-order-statistics',
+        component: GetEachOrderStatisticsComponent,
+      },
+      {
+        path: 'view-overall-order-statistics',
+        component: GetOverallOrderStatisticsComponent,
+      },
+      {
+        path: 'view-never-ordered-items',
+        component: GetNeverOrderedItemsComponent,
       },
 ];
 

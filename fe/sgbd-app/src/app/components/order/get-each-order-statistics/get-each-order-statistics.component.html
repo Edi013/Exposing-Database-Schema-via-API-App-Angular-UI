@@ -1,0 +1,14 @@
+<div class="topBar">
+    <button mat-raised-button color="primary" (click)="navigateHome()">Home</button>
+  </div>
+  
+  <div *ngFor="let orderStat of eachOrderStatistics">
+    <div class="container">
+      <div class="card" *ngFor="let property of getOrderStatisticsProperties(orderStat)">
+        {{ property.label }}: {{ property.value }}
+      </div>
+    </div>
+  </div>
+  
+  <router-outlet></router-outlet>
+  

@@ -30,4 +30,15 @@ export class HomePageComponent implements OnInit {
   navigateToViewItem() {
     this.router.navigate(['view-item']);
   }
+  navigateToOrderStatistics(){
+    this.router.navigate(['view-order-statistics']);
+  }
+
+  navigateToViewOverallOrderStatistics(){
+    this.router.navigate(['view-overall-order-statistics']);
+  }
+
+  navigateToViewNeverOrderedItems(){
+    this.router.navigate(['view-never-ordered-items']);
+  }
 }

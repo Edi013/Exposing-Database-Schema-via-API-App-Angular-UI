@@ -19,6 +19,9 @@ import { StorageLocationListComponent } from './components/storageLocation/stora
 import { StorageLocationFormComponent } from './components/storageLocation/storage-location-form/storage-location-form.component';
 import { ItemListComponent } from './components/item/item-list/item-list.component';
 import { ItemFormComponent } from './components/item/item-form/item-form.component';
+import { GetEachOrderStatisticsComponent } from './components/order/get-each-order-statistics/get-each-order-statistics.component';
+import { GetOverallOrderStatisticsComponent } from './components/order/get-overall-order-statistics/get-overall-order-statistics.component';
+import { GetNeverOrderedItemsComponent } from './components/order/get-never-ordered-items/get-never-ordered-items.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ItemFormComponent } from './components/item/item-form/item-form.compone
     StorageLocationFormComponent,
     ItemListComponent,
     ItemFormComponent,
+    GetEachOrderStatisticsComponent,
+    GetOverallOrderStatisticsComponent,
+    GetNeverOrderedItemsComponent,
   ],
   imports: [
     AppRoutingModule,

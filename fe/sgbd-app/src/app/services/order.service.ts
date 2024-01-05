@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Order } from '../models/order';
 import { BehaviorSubject, Observable, catchError, last, lastValueFrom, of, tap } from 'rxjs';
+import { EachOrderDto } from 'src/DTOs/orderDTOs/each-order-dto';
+import { OverallOrderStatisticsDto } from 'src/DTOs/orderDTOs/overall-order-statistics-dto';
+import { NeverOrderedItemDto } from 'src/DTOs/orderDTOs/never-ordered-item-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +21,15 @@ export class OrderService {
   private ordersSubject = new BehaviorSubject<Order[]>([]);
   orders$: Observable<Order[]> = this.ordersSubject.asObservable();
 
+  private ordersStatisticsSubject = new BehaviorSubject<EachOrderDto[]>([]);
+  ordersStatisticsSubject$: Observable<EachOrderDto[]> = this.ordersStatisticsSubject.asObservable();
+
+  private overallOrdersStatisticsSubject = new BehaviorSubject<OverallOrderStatisticsDto | null>(null);
+  overallOrdersStatisticsSubject$: Observable<OverallOrderStatisticsDto | null> = this.overallOrdersStatisticsSubject.asObservable();
+
+  private neverOrderedItemDtoSubject = new BehaviorSubject<NeverOrderedItemDto[]>([]);
+  neverOrderedItemDtoSubject$: Observable<NeverOrderedItemDto[]> = this.neverOrderedItemDtoSubject.asObservable();
+
   constructor(private http: HttpClient) {}
 
   async getAllOrders(): Promise<Order[]> {
@@ -27,6 +39,48 @@ export class OrderService {
       const orders = await lastValueFrom(response);
       this.ordersSubject.next(orders);
       return orders;
+    } catch (error) {
+      console.error('Error fetching orders', error);
+      throw error; 
+    }
+  }
+
+  async getEachOrderStatistics(): Promise<EachOrderDto[]> {
+    const response = this.http.get<any>(`${this.apiUrl}/Order/GetEachOrderStatistics`, this.httpOptions);
+
+    try {
+      const orders = await lastValueFrom(response);
+      this.ordersStatisticsSubject.next(orders);
+      return orders;
+
+    } catch (error) {
+      console.error('Error fetching orders', error);
+      throw error; 
+    }
+  }
+
+  async getOverallOrderStatistics(): Promise<OverallOrderStatisticsDto> {
+    const response = this.http.get<any>(`${this.apiUrl}/Order/GetOverallOrderStatistics`, this.httpOptions);
+
+    try {
+      const orders = await lastValueFrom(response);
+      this.overallOrdersStatisticsSubject.next(orders);
+      return orders;
+
+    } catch (error) {
+      console.error('Error fetching orders', error);
+      throw error; 
+    }
+  }
+
+  async getNeverOrderedItems(): Promise<NeverOrderedItemDto[]> {
+    const response = this.http.get<any>(`${this.apiUrl}/Order/GetNeverOrderedItems`, this.httpOptions);
+
+    try {
+      const orders = await lastValueFrom(response);
+      this.neverOrderedItemDtoSubject.next(orders);
+      return orders;
+
     } catch (error) {
       console.error('Error fetching orders', error);
       throw error; 

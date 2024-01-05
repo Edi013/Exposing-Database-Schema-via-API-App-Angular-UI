@@ -1,9 +1,18 @@
-<div class="container">
-  <button mat-raised-button color="primary" (click)="navigateToViewCliet()">Clients Table</button>
-  <button mat-raised-button color="primary" (click)="navigateToViewOrder()">Orders Table</button>
-  <button mat-raised-button color="primary" (click)="navigateToViewItem()">Items Table</button>
-  <button mat-raised-button color="primary" (click)="navigateToViewStorageLocation()">Storage Locations Table</button>
-  <button mat-raised-button color="primary" (click)="navigateToViewProvider()">Providers Table</button>
+<div class="divContainer">
+
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="navigateToViewCliet()">Clients Table</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewOrder()">Orders Table</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewItem()">Items Table</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewStorageLocation()">Storage Locations Table</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewProvider()">Providers Table</button>
+  </div>
+  
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="navigateToOrderStatistics()">Order Statistics</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewOverallOrderStatistics()">Overall Order Statistics</button>
+    <button mat-raised-button color="primary" (click)="navigateToViewNeverOrderedItems()">Never Ordered Items</button>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

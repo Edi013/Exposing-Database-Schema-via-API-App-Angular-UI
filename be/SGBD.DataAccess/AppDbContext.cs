@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using SGBD.Domain.Models;
 
 namespace SGBD.DataAccess
 {
     public partial class AppDbContext : DbContext
     {
-        public AppDbContext()
-        {
-        }
+        IConfiguration _configuration;
 
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public AppDbContext(DbContextOptions<AppDbContext> options, IConfiguration _configuration)
             : base(options)
         {
+            this._configuration = _configuration;
         }
 
         public virtual DbSet<Client> Clients { get; set; } = null!;
@@ -24,7 +24,7 @@ namespace SGBD.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseOracle("User Id=system;Password=231;Data Source=//localhost:1521/xe");
+                optionsBuilder.UseOracle(_configuration.GetConnectionString("SGBD"));
             }
         }
 
